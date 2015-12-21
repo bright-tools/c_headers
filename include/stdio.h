@@ -39,8 +39,8 @@ typedef size_t FILE;
 typedef size_t fpos_t;
 
 #define _IOFBF 0
-#define _IOFBF 1
-#define _IOFBF 2
+#define _IOLBF 1
+#define _IONBF 2
 
 #define BUFSIZ 1024
 
