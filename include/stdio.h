@@ -33,7 +33,9 @@ SOFTWARE.
 #define      __STDIO_H
 
 /* For size_t */
-#include <stdlib.h>
+#include <stddef.h>
+/* For va_list */
+#include <stdarg.h>
 
 typedef size_t FILE;
 typedef size_t fpos_t;
