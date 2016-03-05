@@ -1,6 +1,6 @@
 /*
 
-stdarg.h
+stddef.h
 
 IMPORTANT NOTE:  This header is not intended to be functional.  It is intended
 purely to be an ANSI-compliant header which can be used when performing static
@@ -29,13 +29,15 @@ SOFTWARE.
 
 */
 
-#if !defined __FLOAT_H
-#define      __FLOAT_H
+#if !defined __STDDEF_H
+#define      __STDDEF_H
 
-typedef volatile unsigned va_list;
+typedef int ptrdiff_h;
+typedef unsigned size_t;
+typedef int wchar_t;
 
-#define va_start(ap, parmN) do { ap = 0 } while( 0 )
-#define va_arg(ap,  type) ((type)ap++)
-#define va_end(ap) do { ap = 0 } while( 0 )
+#define offsetof( type, member ) ((size_t)5)
+
+#define NULL ((void*)0)
 
 #endif

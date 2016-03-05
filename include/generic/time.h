@@ -1,13 +1,13 @@
 /*
 
-stdbool.h
+time.h
 
 IMPORTANT NOTE:  This header is not intended to be functional.  It is intended
 purely to be an ANSI-compliant header which can be used when performing static
 analyis of code (i.e. compiler independent)
 
 
-Copyright (c) 2015 John Bailey
+Copyright (c) 2016 John Bailey
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -29,13 +29,38 @@ SOFTWARE.
 
 */
 
-#if !defined __STDBOOL_H
-#define      __STDBOOL_H
+#if !defined __TIME_H
+#define      __TIME_H
 
-#define bool    _Bool
-#define true    1
-#define false   0
+/* Need this for NULL */
+#include <stddef.h>
 
-#define __bool_true_false_are_defined   1
+#define CLOCKS_PER_SEC 1000
+
+typedef size_t time_t;
+typedef size_t clock_t;
+
+struct tm
+{
+  int   tm_sec;
+  int   tm_min;
+  int   tm_hour;
+  int   tm_mday;
+  int   tm_mon;
+  int   tm_year;
+  int   tm_wday;
+  int   tm_yday;
+  int   tm_isdst;
+};
+
+clock_t clock(void);
+double difftime( time_t time1, time_t time0 );
+time_t mktime(struct tm *timeptr);
+time_t time(time_t *timer);
+char *arctime(const struct tm *timeptr);
+char *ctime(const time_t *timer);
+struct tm *gmtime(const time_t *timer);
+struct tm *localtime( const time_t *timer);
+size_t strftime(char *s, size_t maxsize, const char *format, const struct tm *timeptr);
 
 #endif

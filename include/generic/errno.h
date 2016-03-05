@@ -1,13 +1,13 @@
 /*
 
-stddef.h
+errno.h
 
 IMPORTANT NOTE:  This header is not intended to be functional.  It is intended
 purely to be an ANSI-compliant header which can be used when performing static
 analyis of code (i.e. compiler independent)
 
 
-Copyright (c) 2015 John Bailey
+Copyright (c) 2016 John Bailey
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -29,15 +29,12 @@ SOFTWARE.
 
 */
 
-#if !defined __STDDEF_H
-#define      __STDDEF_H
+#if !defined __ERRNO_H
+#define      __ERRNO_H
 
-typedef int ptrdiff_h;
-typedef unsigned size_t;
-typedef int wchar_t;
+#define EDOM   1
+#define ERANGE 2
 
-#define offsetif( type, member ) ((size_t)5)
-
-#define NULL ((void*)0)
+extern int errno;
 
 #endif
