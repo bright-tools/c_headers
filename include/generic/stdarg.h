@@ -34,8 +34,8 @@ SOFTWARE.
 
 typedef volatile unsigned va_list;
 
-#define va_start(ap, parmN) do { ap = 0 } while( 0 )
+#define va_start(ap, parmN) do { ap = 0; } while( 0 )
 #define va_arg(ap,  type) ((type)ap++)
-#define va_end(ap) do { ap = 0 } while( 0 )
+#define va_end(ap) do { ap = 0; } while( 0 )
 
 #endif
